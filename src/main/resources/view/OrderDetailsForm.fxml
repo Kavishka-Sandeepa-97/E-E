@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="524.0" prefWidth="823.0" style="-fx-background-color: #2a3950;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Teplate">
+    <children>
+        <Label layoutX="70.0" layoutY="6.0" prefHeight="27.0" prefWidth="271.0" text="E &amp; E  Service  Center ..." textFill="#4cae31">
+            <font>
+                <Font name="Harlow Solid Italic" size="25.0" />
+            </font>
+        </Label>
+        <Pane layoutX="28.0" layoutY="121.0" prefHeight="337.0" prefWidth="200.0" style="-fx-background-radius: 50;" styleClass="paneBackgroundColor" stylesheets="@../css/style.css">
+            <children>
+                <JFXButton fx:id="btnInitiateRepairOrder" layoutX="13.0" layoutY="21.0" onAction="#initiateRepairOrderOnAction" style="-fx-background-radius: 15;" text="Initiate Repair Order" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnOrderDetails" layoutX="27.0" layoutY="59.0" onAction="#orderDetailsOnAction" style="-fx-background-radius: 15;" text="Order Details" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnProductStatus" layoutX="20.0" layoutY="179.0" onAction="#productStatusONAction" style="-fx-background-radius: 15;" text="All  Product Status" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnFinalizePayment" layoutX="24.0" layoutY="217.0" onAction="#finalizePaymentOnAction" style="-fx-background-radius: 15;" text="Finalize Payment" textFill="#da4343">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnSalseReport" layoutX="30.0" layoutY="254.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Salse Report" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnAddUser" layoutX="41.0" layoutY="292.0" onAction="#addUserOnAction" style="-fx-background-radius: 15;" text="Add User" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnSalseReport1" layoutX="54.0" layoutY="101.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Item" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnSalseReport11" layoutX="40.0" layoutY="138.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Customer" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </Pane>
+        <JFXButton fx:id="btnLogout" layoutX="727.0" layoutY="12.0" onAction="#logoutOnAction" text="Logout" textFill="#f8ec3b">
+            <font>
+                <Font name="System Bold Italic" size="15.0" />
+            </font>
+        </JFXButton>
+      <JFXTreeTableView layoutX="242.0" layoutY="170.0" prefHeight="240.0" prefWidth="567.0">
+         <columns>
+            <TreeTableColumn prefWidth="103.0" text="Order ID" />
+            <TreeTableColumn prefWidth="90.0" text="Item ID" />
+            <TreeTableColumn prefWidth="112.0" text="Item Name" />
+            <TreeTableColumn prefWidth="148.0" text="Discription" />
+            <TreeTableColumn minWidth="0.0" prefWidth="113.0" text="Status" />
+         </columns>
+      </JFXTreeTableView>
+    </children>
+</AnchorPane>

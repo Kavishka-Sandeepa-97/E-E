@@ -1,0 +1,37 @@
+.btn{
+ -fx-background-color: linear-gradient(to right, #ff6347, #ffd700);
+  -fx-border-radius: 10px;
+}
+.border{
+
+  -fx-border-radius: 10;
+}
+
+.background{
+-fx-background-image: url('../img/loginImg.jpg');
+-fx-background-repeat: no-repeat;
+-fx-background-size: contain;
+-fx-background-size: 100% 100%;
+
+}
+.loginAnchorPane{
+  -fx-background-color: rgba(149, 13, 232, 0.7);
+  -fx-background-radius: 0 50 50 50 ;
+}
+
+.promtText{
+    -fx-prompt-text-fill: #ffffff; /* Set the color you want for the prompt text */
+}
+.btnLogin{
+-fx-background-color: linear-gradient(to right, #00ff00, #008000);
+}
+.btnLogin:hover{
+-fx-background-color: #2980b9;
+}
+.paneBackgroundColor{
+ -fx-background-color: linear-gradient(to right, #2a3950, #415a7d);
+}
+
+.fillColor{
+    -fx-text-fill: white;
+}
