@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="524.0" prefWidth="823.0" style="-fx-background-color: #2a3950;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Teplate">
+<AnchorPane prefHeight="524.0" prefWidth="823.0" style="-fx-background-color: #2a3950;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderDetailsFormController">
     <children>
         <Label layoutX="70.0" layoutY="6.0" prefHeight="27.0" prefWidth="271.0" text="E &amp; E  Service  Center ..." textFill="#4cae31">
             <font>
@@ -47,12 +47,12 @@
                         <Font name="System Bold Italic" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnSalseReport1" layoutX="54.0" layoutY="101.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Item" textFill="WHITE">
+                <JFXButton layoutX="54.0" layoutY="101.0" onAction="#itemOnAction" style="-fx-background-radius: 15;" text="Item" textFill="WHITE">
                     <font>
                         <Font name="System Bold Italic" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnSalseReport11" layoutX="40.0" layoutY="138.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Customer" textFill="WHITE">
+                <JFXButton layoutX="40.0" layoutY="138.0" onAction="#customerOnAction" style="-fx-background-radius: 15;" text="Customer" textFill="WHITE">
                     <font>
                         <Font name="System Bold Italic" size="15.0" />
                     </font>

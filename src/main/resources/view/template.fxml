@@ -47,12 +47,12 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnSalseReport1" layoutX="54.0" layoutY="101.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Item" textFill="WHITE">
+            <JFXButton layoutX="54.0" layoutY="101.0" onAction="#itemOnAction" style="-fx-background-radius: 15;" text="Item" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnSalseReport11" layoutX="40.0" layoutY="138.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Customer" textFill="WHITE">
+            <JFXButton layoutX="40.0" layoutY="138.0" onAction="#customerOnAction" style="-fx-background-radius: 15;" text="Customer" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>

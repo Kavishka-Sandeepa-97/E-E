@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class InetializeRepairOrder {
+public class FinalizePaymentFormController {
 
     @FXML
     private JFXButton btnInitiateRepairOrder;
@@ -30,15 +30,7 @@ public class InetializeRepairOrder {
     private JFXButton btnAddUser;
 
     @FXML
-    private JFXButton btnSalseReport1;
-
-    @FXML
-    private JFXButton btnSalseReport11;
-
-    @FXML
     private JFXButton btnLogout;
-
-
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();

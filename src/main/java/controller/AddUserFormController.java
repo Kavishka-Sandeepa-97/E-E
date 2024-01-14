@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class InetializeRepairOrder {
+public class AddUserFormController {
 
     @FXML
     private JFXButton btnInitiateRepairOrder;
@@ -28,12 +28,6 @@ public class InetializeRepairOrder {
 
     @FXML
     private JFXButton btnAddUser;
-
-    @FXML
-    private JFXButton btnSalseReport1;
-
-    @FXML
-    private JFXButton btnSalseReport11;
 
     @FXML
     private JFXButton btnLogout;
@@ -158,4 +152,5 @@ public class InetializeRepairOrder {
         }
 
     }
+
 }

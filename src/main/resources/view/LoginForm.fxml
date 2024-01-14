@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="711.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="loginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="711.0" styleClass="background" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
    <center>
       <GridPane prefHeight="429.0" prefWidth="687.0" styleClass="background" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -42,11 +42,11 @@
                         <Font name="Arial Black" size="25.0" />
                      </font>
                   </Label>
-                  <Button layoutX="86.0" layoutY="238.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" style="-fx-background-radius: 20;" styleClass="btnLogin" stylesheets="@../css/style.css" text="Sing in" textFill="WHITE">
+                  <Button fx:id="btnSignIn" layoutX="86.0" layoutY="238.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-radius: 20;" styleClass="btnLogin" stylesheets="@../css/style.css" text="Sing in" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Button>
-                  <JFXButton layoutX="70.0" layoutY="195.0" prefHeight="25.0" prefWidth="144.0" text="Forgot your password ?" textFill="WHITE">
+                  <JFXButton fx:id="btnForgot" layoutX="70.0" layoutY="195.0" onAction="#forgotbtnOnAction" prefHeight="25.0" prefWidth="144.0" text="Forgot your password ?" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>

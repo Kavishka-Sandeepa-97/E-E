@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="524.0" prefWidth="823.0" style="-fx-background-color: #2a3950;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemFormController">
+<AnchorPane prefHeight="524.0" prefWidth="915.0" style="-fx-background-color: #2a3950;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerFormController">
     <children>
         <Label layoutX="70.0" layoutY="6.0" prefHeight="27.0" prefWidth="271.0" text="E &amp; E  Service  Center ..." textFill="#4cae31">
             <font>
                 <Font name="Harlow Solid Italic" size="25.0" />
             </font>
         </Label>
-        <Pane layoutX="28.0" layoutY="121.0" prefHeight="337.0" prefWidth="200.0" style="-fx-background-radius: 50;" styleClass="paneBackgroundColor" stylesheets="@../css/style.css">
+        <Pane layoutX="23.0" layoutY="152.0" prefHeight="337.0" prefWidth="200.0" style="-fx-background-radius: 50;" styleClass="paneBackgroundColor" stylesheets="@../css/style.css">
             <children>
                 <JFXButton fx:id="btnInitiateRepairOrder" layoutX="13.0" layoutY="21.0" onAction="#initiateRepairOrderOnAction" style="-fx-background-radius: 15;" text="Initiate Repair Order" textFill="WHITE">
                     <font>
@@ -48,51 +48,58 @@
                         <Font name="System Bold Italic" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnSalseReport1" layoutX="54.0" layoutY="101.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Item" textFill="WHITE">
+                <JFXButton layoutX="54.0" layoutY="101.0" onAction="#itemOnAction" style="-fx-background-radius: 15;" text="Item" textFill="WHITE">
                     <font>
                         <Font name="System Bold Italic" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnSalseReport11" layoutX="40.0" layoutY="138.0" onAction="#salseReportOnAction" style="-fx-background-radius: 15;" text="Customer" textFill="WHITE">
+                <JFXButton layoutX="40.0" layoutY="138.0" onAction="#customerOnAction" style="-fx-background-radius: 15;" text="Customer" textFill="WHITE">
                     <font>
                         <Font name="System Bold Italic" size="15.0" />
                     </font>
                 </JFXButton>
             </children>
         </Pane>
-        <JFXButton fx:id="btnLogout" layoutX="727.0" layoutY="12.0" onAction="#logoutOnAction" text="Logout" textFill="#f8ec3b">
+        <JFXButton fx:id="btnLogout" layoutX="803.0" layoutY="12.0" onAction="#logoutOnAction" text="Logout" textFill="#f8ec3b">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </JFXButton>
-        <JFXTreeTableView layoutX="263.0" layoutY="209.0" prefHeight="240.0" prefWidth="440.0">
+        <JFXTreeTableView layoutX="238.0" layoutY="230.0" prefHeight="240.0" prefWidth="655.0">
             <columns>
-                <TreeTableColumn prefWidth="129.0" text="Item ID" />
-                <TreeTableColumn prefWidth="158.0" text="Item Name" />
-                <TreeTableColumn prefWidth="152.0" text="Brand" />
+                <TreeTableColumn prefWidth="129.0" text="Customer ID" />
+                <TreeTableColumn prefWidth="171.0" text="Customer Name" />
+                <TreeTableColumn prefWidth="205.0" text="Email" />
+            <TreeTableColumn prefWidth="149.0" text="Phone no" />
             </columns>
         </JFXTreeTableView>
-        <JFXButton layoutX="601.0" layoutY="165.0" prefHeight="35.0" prefWidth="93.0" style="-fx-background-color: #4cae31; -fx-background-radius: 10;" text="Add Item" textFill="WHITE">
+        <JFXButton layoutX="594.0" layoutY="166.0" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #4cae31; -fx-background-radius: 10;" text="Add Customer" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </JFXButton>
-        <Label layoutX="321.0" layoutY="92.0" prefHeight="31.0" prefWidth="107.0" text="Item Name" textFill="WHITE">
+        <Label layoutX="321.0" layoutY="92.0" prefHeight="31.0" prefWidth="142.0" text="Customer Name" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
         <JFXTextField layoutX="512.0" layoutY="115.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
-        <Label layoutX="512.0" layoutY="92.0" prefHeight="31.0" prefWidth="107.0" text="Brand" textFill="WHITE">
+        <Label layoutX="512.0" layoutY="92.0" prefHeight="31.0" prefWidth="107.0" text="Email" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="689.0" layoutY="96.0" prefHeight="31.0" prefWidth="107.0" text="Item ID" textFill="WHITE">
+        <Label layoutX="689.0" layoutY="96.0" prefHeight="31.0" prefWidth="107.0" text="Customer ID" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
         <JFXTextField layoutX="321.0" layoutY="115.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXTextField layoutX="321.0" layoutY="175.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <Label layoutX="321.0" layoutY="152.0" prefHeight="31.0" prefWidth="107.0" text="Phone No" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class InetializeRepairOrder {
+public class OrderDetailsFormController {
 
     @FXML
     private JFXButton btnInitiateRepairOrder;
@@ -30,15 +30,7 @@ public class InetializeRepairOrder {
     private JFXButton btnAddUser;
 
     @FXML
-    private JFXButton btnSalseReport1;
-
-    @FXML
-    private JFXButton btnSalseReport11;
-
-    @FXML
     private JFXButton btnLogout;
-
-
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
@@ -59,7 +51,7 @@ public class InetializeRepairOrder {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/AllProductStatus.fxml"))));
             stage.show();
             stage.setTitle("All Product Status");
-
+            stage.setResizable(false);
         } catch (IOException e) {
 
             throw new RuntimeException(e);
@@ -80,7 +72,7 @@ public class InetializeRepairOrder {
         }
     }
 
-    public void salseReportOnAction(ActionEvent actionEvent) {
+    public void salseReportOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/SalesReportForm.fxml"))));
@@ -93,7 +85,7 @@ public class InetializeRepairOrder {
         }
     }
 
-    public void addUserOnAction(ActionEvent actionEvent) {
+    public void addUserOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/AddUserForm.fxml"))));
@@ -106,7 +98,7 @@ public class InetializeRepairOrder {
         }
     }
 
-    public void logoutOnAction(ActionEvent actionEvent) {
+    public void logoutOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
@@ -119,7 +111,7 @@ public class InetializeRepairOrder {
         }
     }
 
-    public void initiateRepairOrderOnAction(ActionEvent actionEvent) {
+    public void initiateRepairOrderOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/InitializeRepairOrder.fxml"))));
@@ -132,7 +124,7 @@ public class InetializeRepairOrder {
         }
     }
 
-    public void itemOnAction(ActionEvent actionEvent) {
+    public void itemOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ItemForm.fxml"))));
@@ -158,4 +150,5 @@ public class InetializeRepairOrder {
         }
 
     }
+
 }
