@@ -20,7 +20,7 @@ public class HibernateUtil {
         Metadata metadata = new MetadataSources(standardRegistry)
                 .addAnnotatedClass(Customer.class)
                 .addAnnotatedClass(Item.class)
-                .addAnnotatedClass(Order.class)
+                .addAnnotatedClass(Orders.class)
                 .addAnnotatedClass(User.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)

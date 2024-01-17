@@ -1,11 +1,9 @@
 package dao.custom;
 
 import dao.CrudDao;
-import entity.Order;
+import entity.Orders;
 
-import java.sql.SQLException;
-
-public interface OrderDao extends CrudDao<Order> {
+public interface OrderDao extends CrudDao<Orders> {
 
 
 

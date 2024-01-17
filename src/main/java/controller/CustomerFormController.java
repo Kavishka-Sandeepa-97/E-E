@@ -1,16 +1,25 @@
 package controller;
 
+import boService.Custom.CustomerBo;
+import boService.Custom.impl.CustomerBoImpl;
+import boService.SuperBo;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import dto.CustomerDto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TreeTableColumn;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class CustomerFormController {
 
+    public Label lblCustomerID;
     @FXML
     private JFXButton btnInitiateRepairOrder;
 
@@ -37,6 +46,36 @@ public class CustomerFormController {
 
     @FXML
     private JFXButton btnLogout;
+
+    @FXML
+    private TreeTableColumn<?, ?> colCustomerID;
+
+    @FXML
+    private TreeTableColumn<?, ?> colCustomerName;
+
+    @FXML
+    private TreeTableColumn<?, ?> colCustomerEmail;
+
+    @FXML
+    private TreeTableColumn<?, ?> colCustomerPhone;
+
+    @FXML
+    private JFXButton btnAddCustomer;
+
+    @FXML
+    private JFXTextField txtEmail;
+
+
+    @FXML
+    private JFXTextField txtCustomerName;
+
+    @FXML
+    private JFXTextField txtPhoneNumber;
+    private CustomerBo customerBo=new CustomerBoImpl();
+    public void initialize() {
+
+        setOrderid();
+    }
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
@@ -157,6 +196,26 @@ public class CustomerFormController {
 
     }
 
+    public void addCustomerOnAction(ActionEvent actionEvent) {
+        try {
+            customerBo.saveCustomer(new CustomerDto(
+                 lblCustomerID.getText(),
+                 txtCustomerName.getText(),
+                 txtEmail.getText(),
+                 Long.parseLong(txtPhoneNumber.getText())
+            ));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setOrderid() {
+
+            lblCustomerID.setText(customerBo.genarateId());
+
+    }
 }
 
 

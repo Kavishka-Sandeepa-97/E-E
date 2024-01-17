@@ -3,6 +3,7 @@ package dao.custom.impl;
 import dao.custom.CustomerDao;
 
 import dao.util.HibernateUtil;
+import dto.CustomerDto;
 import entity.Customer;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -98,5 +99,16 @@ public class CustomerDaoImpl implements CustomerDao {
 //
 //        }
 //        return list;
+    }
+
+    @Override
+    public Customer lastOrder() {
+        Customer lastRow=null;
+        Session session=HibernateUtil.getSession();
+        Query<Customer> query = session.createQuery("FROM Customer ORDER BY customerID DESC", Customer.class);
+
+        query.setMaxResults(1);
+        lastRow = query.uniqueResult();
+        return lastRow;
     }
 }

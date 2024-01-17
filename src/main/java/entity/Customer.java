@@ -19,6 +19,6 @@ public class Customer {
     String customerEmail;
     long phoneNumber;
 
-    @OneToMany(mappedBy = "order")
-    List<Order> orderList=new ArrayList<>();
+    @OneToMany(mappedBy = "customer")
+    List<Orders> ordersList =new ArrayList<>();
 }

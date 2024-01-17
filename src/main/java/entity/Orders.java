@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @Entity
-public class Order {
+public class Orders {
     @Id
     String OrderId;
     String date;

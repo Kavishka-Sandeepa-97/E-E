@@ -67,13 +67,13 @@
         </JFXButton>
         <JFXTreeTableView layoutX="238.0" layoutY="230.0" prefHeight="240.0" prefWidth="655.0">
             <columns>
-                <TreeTableColumn prefWidth="129.0" text="Customer ID" />
-                <TreeTableColumn prefWidth="171.0" text="Customer Name" />
-                <TreeTableColumn prefWidth="205.0" text="Email" />
-            <TreeTableColumn prefWidth="149.0" text="Phone no" />
+                <TreeTableColumn fx:id="colCustomerID" prefWidth="129.0" text="Customer ID" />
+                <TreeTableColumn fx:id="colCustomerName" prefWidth="171.0" text="Customer Name" />
+                <TreeTableColumn fx:id="colCustomerEmail" prefWidth="205.0" text="Email" />
+            <TreeTableColumn fx:id="colCustomerPhone" prefWidth="149.0" text="Phone no" />
             </columns>
         </JFXTreeTableView>
-        <JFXButton layoutX="594.0" layoutY="166.0" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #4cae31; -fx-background-radius: 10;" text="Add Customer" textFill="WHITE">
+        <JFXButton fx:id="btnAddCustomer" layoutX="594.0" layoutY="166.0" onAction="#addCustomerOnAction" prefHeight="35.0" prefWidth="107.0" style="-fx-background-color: #4cae31; -fx-background-radius: 10;" text="Add Customer" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
@@ -83,19 +83,19 @@
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <JFXTextField layoutX="512.0" layoutY="115.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+        <JFXTextField fx:id="txtEmail" layoutX="512.0" layoutY="115.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
         <Label layoutX="512.0" layoutY="92.0" prefHeight="31.0" prefWidth="107.0" text="Email" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="689.0" layoutY="96.0" prefHeight="31.0" prefWidth="107.0" text="Customer ID" textFill="WHITE">
+        <Label fx:id="lblCustomerID" layoutX="689.0" layoutY="96.0" prefHeight="31.0" prefWidth="107.0" text="Customer ID" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <JFXTextField layoutX="321.0" layoutY="115.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
-      <JFXTextField layoutX="321.0" layoutY="175.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+        <JFXTextField fx:id="txtCustomerName" layoutX="321.0" layoutY="115.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtPhoneNumber" layoutX="321.0" layoutY="175.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
       <Label layoutX="321.0" layoutY="152.0" prefHeight="31.0" prefWidth="107.0" text="Phone No" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
