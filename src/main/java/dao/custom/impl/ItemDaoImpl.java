@@ -1,7 +1,13 @@
 package dao.custom.impl;
 
 import dao.custom.ItemDao;
+import dao.util.HibernateUtil;
+import entity.Customer;
 import entity.Item;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import java.sql.SQLException;
 
 import java.util.List;
@@ -9,7 +15,12 @@ import java.util.List;
 public class ItemDaoImpl implements ItemDao {
     @Override
     public boolean save(Item entity) throws SQLException, ClassNotFoundException {
-        return false;
+        Session session= HibernateUtil.getSession();
+        Transaction transaction=session.beginTransaction();
+        session.save(entity);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -24,12 +35,24 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public List<Item> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+        Session session=HibernateUtil.getSession();
+        Query fromCustomer = session.createQuery("From Item");
+        List list = fromCustomer.list();
+        return list;
     }
 
     @Override
     public Item getItem(String id) throws SQLException, ClassNotFoundException {
         return null;
+    }
+    public Item lastItem() {
+        Item lastRow=null;
+        Session session= HibernateUtil.getSession();
+        Query<Item> query = session.createQuery("FROM Item ORDER BY ItemCode DESC", Item.class);
+
+        query.setMaxResults(1);
+        lastRow = query.uniqueResult();
+        return lastRow;
     }
 
 

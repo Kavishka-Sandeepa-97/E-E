@@ -1,6 +1,7 @@
 package dao.custom;
 
 import dao.CrudDao;
+import entity.Customer;
 import entity.Item;
 
 import java.sql.SQLException;
@@ -12,4 +13,5 @@ public interface ItemDao extends CrudDao<Item> {
 //    List<ItemDto> allItem() throws SQLException, ClassNotFoundException;
 //    ItemDto getItem(String id) throws SQLException, ClassNotFoundException;
     Item getItem(String id) throws SQLException, ClassNotFoundException ;
+    Item lastItem();
 }

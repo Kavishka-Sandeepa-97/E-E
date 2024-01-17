@@ -14,4 +14,6 @@ public interface ItemBo extends SuperBo {
 
     ItemDto getItem(String id) throws SQLException, ClassNotFoundException;
 
+    String genarateId();
+
 }

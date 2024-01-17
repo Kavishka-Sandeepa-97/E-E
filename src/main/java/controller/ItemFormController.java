@@ -1,21 +1,42 @@
 package controller;
 
+import boService.BoFactory;
+import boService.BoType;
+import boService.Custom.ItemBo;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import dao.DaoFactory;
+import dao.DaoType;
+import dao.custom.ItemDao;
+import entity.Customer;
+import entity.Item;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class ItemFormController {
 
     public TreeTableColumn colItemId;
     public TreeTableColumn colItemName;
-    public JFXTreeTableView tblItem;
+
+    public JFXTreeTableView<Item> tblItem;
+    public Label lblItemId;
+    public JFXTextField txtItemName;
     @FXML
     private JFXButton btnInitiateRepairOrder;
 
@@ -36,6 +57,38 @@ public class ItemFormController {
 
     @FXML
     private JFXButton btnLogout;
+    private ItemDao itemDao= DaoFactory.getInstance().getDao(DaoType.ITEM);
+    private ItemBo itemBo= BoFactory.getInstance().getBo(BoType.ITEM);
+
+    public void initialize() {
+
+        setItemId();
+        loadItemrTable();
+        colItemId.setCellValueFactory(new TreeItemPropertyValueFactory<>("itemCode"));
+        colItemName.setCellValueFactory(new TreeItemPropertyValueFactory<>("itemName"));
+    }
+
+    private void loadItemrTable() {
+        ObservableList<Item> tmList = FXCollections.observableArrayList();
+        List<Item> items = null;
+        try {
+            items = itemDao.getAll();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        for(Item item:items){
+            tmList.add(item);
+        }
+
+        TreeItem<Item> treeItem = new RecursiveTreeItem<>(tmList, RecursiveTreeObject::getChildren);
+        tblItem.setRoot(treeItem);
+        tblItem.setShowRoot(false);
+    }
+
+    private void setItemId() {
+        lblItemId.setText(itemBo.genarateId());
+
+    }
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
@@ -48,6 +101,19 @@ public class ItemFormController {
 
             throw new RuntimeException(e);
         }
+    }
+    public void addItemOnAction(ActionEvent actionEvent) {
+        try {
+            itemDao.save(new Item(
+            lblItemId.getText(),
+                    txtItemName.getText()
+            ));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void productStatusONAction(javafx.event.ActionEvent actionEvent) {
@@ -156,8 +222,5 @@ public class ItemFormController {
 
     }
 
-    public void addItemOnAction(ActionEvent actionEvent) {
 
-
-    }
 }
