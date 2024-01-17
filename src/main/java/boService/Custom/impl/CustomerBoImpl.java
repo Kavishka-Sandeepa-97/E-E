@@ -1,22 +1,32 @@
 package boService.Custom.impl;
 
 import boService.Custom.CustomerBo;
+import dao.DaoFactory;
+import dao.DaoType;
 import dao.custom.CustomerDao;
 import dao.custom.impl.CustomerDaoImpl;
 import dto.CustomerDto;
 import dto.OrderDto;
 import entity.Customer;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.List;
 
 
 public class CustomerBoImpl implements CustomerBo {
-    private CustomerDao customerDao= new CustomerDaoImpl();
+    private CustomerDao customerDao= DaoFactory.getInstance().getDao(DaoType.CUSTOMER);
 
     @Override
     public boolean saveCustomer(CustomerDto dto) throws SQLException, ClassNotFoundException {
-        return false;
+      return   customerDao.save(new Customer(
+                dto.getCustomerId(),
+                dto.getCustomerName(),
+                dto.getCustomerEmail(),
+                dto.getCustomerPhoneNumber()
+        ));
+
     }
 
     @Override
@@ -30,8 +40,9 @@ public class CustomerBoImpl implements CustomerBo {
     }
 
     @Override
-    public List<CustomerDto> allCustomer() throws SQLException, ClassNotFoundException {
-        return null;
+    public List<Customer> allCustomer() throws SQLException, ClassNotFoundException {
+
+        return customerDao.getAll();
     }
 
     @Override
@@ -44,7 +55,7 @@ public class CustomerBoImpl implements CustomerBo {
                 String string = customer.getCustomerId();
                 int id = Integer.parseInt(string.split("C")[1]);
                 id++;
-                return String.format("D%03d", id);
+                return String.format("C%03d", id);
             }
 
         }

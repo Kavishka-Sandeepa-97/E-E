@@ -1,25 +1,37 @@
 package controller;
 
+import boService.BoFactory;
+import boService.BoType;
 import boService.Custom.CustomerBo;
 import boService.Custom.impl.CustomerBoImpl;
 import boService.SuperBo;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import dto.CustomerDto;
+import entity.Customer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class CustomerFormController {
 
     public Label lblCustomerID;
+    public JFXTreeTableView<Customer> treeTableView;
     @FXML
     private JFXButton btnInitiateRepairOrder;
 
@@ -71,10 +83,15 @@ public class CustomerFormController {
 
     @FXML
     private JFXTextField txtPhoneNumber;
-    private CustomerBo customerBo=new CustomerBoImpl();
+    private CustomerBo customerBo= BoFactory.getInstance().getBo(BoType.CUSTOMER);
     public void initialize() {
 
         setOrderid();
+        loadCustomerTable();
+        colCustomerID.setCellValueFactory(new TreeItemPropertyValueFactory<>("customerId"));
+        colCustomerName.setCellValueFactory(new TreeItemPropertyValueFactory<>("customerName"));
+        colCustomerEmail.setCellValueFactory(new TreeItemPropertyValueFactory<>("customerEmail"));
+        colCustomerPhone.setCellValueFactory(new TreeItemPropertyValueFactory<>("PhoneNumber"));
     }
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
@@ -215,6 +232,22 @@ public class CustomerFormController {
 
             lblCustomerID.setText(customerBo.genarateId());
 
+    }
+    private void loadCustomerTable() {
+        ObservableList<Customer> tmList = FXCollections.observableArrayList();
+        List<Customer> customers = null;
+        try {
+            customers = customerBo.allCustomer();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        for(Customer customer:customers){
+                tmList.add(customer);
+            }
+
+        TreeItem<Customer> treeItem = new RecursiveTreeItem<>(tmList, RecursiveTreeObject::getChildren);
+        treeTableView.setRoot(treeItem);
+        treeTableView.setShowRoot(false);
     }
 }
 

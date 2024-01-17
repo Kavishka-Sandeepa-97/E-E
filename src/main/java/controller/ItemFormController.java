@@ -1,16 +1,21 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTreeTableView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TreeTableColumn;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class ItemFormController {
 
+    public TreeTableColumn colItemId;
+    public TreeTableColumn colItemName;
+    public JFXTreeTableView tblItem;
     @FXML
     private JFXButton btnInitiateRepairOrder;
 
@@ -151,4 +156,8 @@ public class ItemFormController {
 
     }
 
+    public void addItemOnAction(ActionEvent actionEvent) {
+
+
+    }
 }
