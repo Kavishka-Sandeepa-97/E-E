@@ -18,6 +18,7 @@ import java.util.List;
 public class Item extends RecursiveTreeObject<Item> {
 
 
+
     @Id
     String itemCode;
     String itemName;
@@ -28,5 +29,9 @@ public class Item extends RecursiveTreeObject<Item> {
         this.itemCode = itemCode;
         this.itemName = itemName;
     }
+    public Item(String itemCode) {
+        this.itemCode = itemCode;
+    }
+
 
 }

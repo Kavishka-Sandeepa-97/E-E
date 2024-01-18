@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TreeTableColumn?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="524.0" prefWidth="823.0" style="-fx-background-color: #2a3950;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderDetailsFormController">
+<AnchorPane prefHeight="524.0" prefWidth="1107.0" style="-fx-background-color: #2a3950;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderDetailsFormController">
     <children>
         <Label layoutX="70.0" layoutY="6.0" prefHeight="27.0" prefWidth="271.0" text="E &amp; E  Service  Center ..." textFill="#4cae31">
             <font>
@@ -59,19 +60,27 @@
                 </JFXButton>
             </children>
         </Pane>
-        <JFXButton fx:id="btnLogout" layoutX="727.0" layoutY="12.0" onAction="#logoutOnAction" text="Logout" textFill="#f8ec3b">
+        <JFXButton fx:id="btnLogout" layoutX="936.0" layoutY="34.0" onAction="#logoutOnAction" text="Logout" textFill="#f8ec3b">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </JFXButton>
-      <JFXTreeTableView layoutX="242.0" layoutY="170.0" prefHeight="240.0" prefWidth="567.0">
+      <JFXTreeTableView layoutX="297.0" layoutY="170.0" prefHeight="240.0" prefWidth="756.0">
          <columns>
-            <TreeTableColumn prefWidth="103.0" text="Order ID" />
-            <TreeTableColumn prefWidth="90.0" text="Item ID" />
-            <TreeTableColumn prefWidth="112.0" text="Item Name" />
-            <TreeTableColumn prefWidth="148.0" text="Discription" />
-            <TreeTableColumn minWidth="0.0" prefWidth="113.0" text="Status" />
+            <TreeTableColumn fx:id="colOrderID" prefWidth="85.0" text="Order ID" />
+            <TreeTableColumn fx:id="colItemName" prefWidth="91.0" text="Item Id" />
+            <TreeTableColumn fx:id="colDescription" prefWidth="138.0" text="Description" />
+            <TreeTableColumn fx:id="colStatus" prefWidth="103.0" text="Status" />
+            <TreeTableColumn fx:id="colReciveDate" minWidth="0.0" prefWidth="112.0" text="Recive Date" />
+            <TreeTableColumn fx:id="colExtraCost" minWidth="0.0" prefWidth="110.0" text="Extra Cost" />
+            <TreeTableColumn fx:id="colServiceCharge" minWidth="0.0" prefWidth="116.0" text="Service Charge" />
          </columns>
       </JFXTreeTableView>
+      <Label layoutX="331.0" layoutY="103.0" prefHeight="31.0" prefWidth="107.0" text="Order ID" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtItemName" layoutX="331.0" layoutY="121.0" prefHeight="25.0" prefWidth="133.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
     </children>
 </AnchorPane>

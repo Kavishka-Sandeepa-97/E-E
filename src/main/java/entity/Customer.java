@@ -15,6 +15,8 @@ import java.util.List;
 @Setter
 @Entity
 public class Customer extends RecursiveTreeObject<Customer> {
+
+
     @Id
     String CustomerId;
     String customerName;
@@ -29,5 +31,8 @@ public class Customer extends RecursiveTreeObject<Customer> {
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.phoneNumber = phoneNumber;
+    }
+    public Customer(String customerId) {
+        CustomerId = customerId;
     }
 }

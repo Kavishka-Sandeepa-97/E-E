@@ -5,11 +5,29 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TreeTableColumn;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class OrderDetailsFormController {
+
+    public TreeTableColumn colDescription
+            ;
+    public TreeTableColumn colExtraCost;
+    public TreeTableColumn colServiceCharge
+            ;
+    @FXML
+    private TreeTableColumn<?, ?> colOrderID;
+
+    @FXML
+    private TreeTableColumn<?, ?> colItemName;
+
+    @FXML
+    private TreeTableColumn<?, ?> colStatus;
+
+    @FXML
+    private TreeTableColumn<?, ?> colReciveDate;
 
     @FXML
     private JFXButton btnInitiateRepairOrder;
@@ -31,6 +49,13 @@ public class OrderDetailsFormController {
 
     @FXML
     private JFXButton btnLogout;
+
+    public void initialize(){
+
+
+    }
+
+
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();

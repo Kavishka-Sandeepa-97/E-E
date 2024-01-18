@@ -12,4 +12,6 @@ public interface OrderBo extends SuperBo {
     public  String genarateOrderId() throws SQLException, ClassNotFoundException;
 
     public List<OrderDto> allOrder() throws SQLException, ClassNotFoundException;
+
+    String genarateId();
 }

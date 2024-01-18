@@ -114,6 +114,10 @@ public class ItemFormController {
             throw new RuntimeException(e);
         }
 
+        txtItemName.clear();
+        setItemId();
+
+        loadItemrTable();
     }
 
     public void productStatusONAction(javafx.event.ActionEvent actionEvent) {

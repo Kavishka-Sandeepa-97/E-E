@@ -65,24 +65,24 @@
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </JFXButton>
-      <JFXComboBox focusColor="#4cae31" layoutX="301.0" layoutY="126.0" prefHeight="31.0" prefWidth="128.0" unFocusColor="WHITE" />
-      <Label layoutX="301.0" layoutY="103.0" prefHeight="31.0" prefWidth="107.0" style="-fx-text-fill: white;" text="Item" textFill="WHITE">
+      <JFXComboBox fx:id="cmbItemName" focusColor="#4cae31" layoutX="301.0" layoutY="132.0" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: white;" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <Label layoutX="301.0" layoutY="102.0" prefHeight="31.0" prefWidth="107.0" style="-fx-text-fill: white;" text="Item" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="661.0" layoutY="102.0" prefHeight="31.0" prefWidth="107.0" text="Order Id" textFill="WHITE">
+      <Label fx:id="lblOrderID" layoutX="661.0" layoutY="102.0" prefHeight="31.0" prefWidth="107.0" text="Order Id" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextArea layoutX="301.0" layoutY="223.0" prefHeight="35.0" prefWidth="296.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXTextArea fx:id="txtDescription" layoutX="301.0" layoutY="223.0" prefHeight="35.0" prefWidth="296.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
       <Label layoutX="301.0" layoutY="192.0" prefHeight="31.0" prefWidth="107.0" text="Description" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="298.0" layoutY="304.0" prefHeight="31.0" prefWidth="142.0" style="-fx-text-fill: white;" text="Customer Name" textFill="WHITE">
+      <Label layoutX="309.0" layoutY="309.0" prefHeight="31.0" prefWidth="142.0" style="-fx-text-fill: white;" text="Customer Name" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -97,19 +97,23 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="489.0" layoutY="343.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
-      <JFXTextField layoutX="301.0" layoutY="424.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
-      <JFXButton layoutX="304.0" layoutY="502.0" prefHeight="35.0" prefWidth="151.0" style="-fx-background-color: #4cae31; -fx-background-radius: 10;" text="Initiate Repair Order" textFill="WHITE">
+      <JFXTextField fx:id="txtCustomerPone" layoutX="301.0" layoutY="424.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXButton layoutX="304.0" layoutY="502.0" onAction="#InitiateRepairOrderOnAction" prefHeight="35.0" prefWidth="151.0" style="-fx-background-color: #4cae31; -fx-background-radius: 10;" text="Initiate Repair Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXComboBox focusColor="#4cae31" layoutX="304.0" layoutY="340.0" prefHeight="31.0" prefWidth="128.0" unFocusColor="WHITE" />
-      <Label layoutX="489.0" layoutY="304.0" prefHeight="31.0" prefWidth="107.0" style="-fx-text-fill: white;" text="New Customer" textFill="WHITE">
+      <JFXComboBox fx:id="cmbCustomerName" focusColor="#4cae31" layoutX="304.0" layoutY="346.0" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: white;" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtCustomerEmail" layoutX="489.0" layoutY="424.0" prefHeight="25.0" prefWidth="200.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <Label fx:id="lblItemID" layoutX="472.0" layoutY="103.0" prefHeight="31.0" prefWidth="107.0" text="Item ID" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="489.0" layoutY="424.0" prefHeight="25.0" prefWidth="200.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <Label fx:id="LblCustomerID" layoutX="472.0" layoutY="309.0" prefHeight="31.0" prefWidth="107.0" text="Customer ID" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -226,6 +226,11 @@ public class CustomerFormController {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        txtCustomerName.clear();
+        txtEmail.clear();
+        txtPhoneNumber.clear();
+        setOrderid();
+        loadCustomerTable();
     }
 
     public void setOrderid() {
