@@ -274,7 +274,7 @@ public void initialize() {
                     "PENDING",
                     0.0,
                     0.0,
-                    new Customer(LblCustomerID.getText()),
+                    new Customer(LblCustomerID.getText(),(String) cmbCustomerName.getValue(),txtCustomerEmail.getText(),Long.parseLong(txtCustomerPone.getText())),
                     new Item(lblItemID.getText())
             ));
             if (save){

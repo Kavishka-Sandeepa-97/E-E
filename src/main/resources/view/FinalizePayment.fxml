@@ -63,7 +63,7 @@
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </JFXButton>
-        <JFXButton layoutX="647.0" layoutY="465.0" prefHeight="35.0" prefWidth="93.0" style="-fx-background-color: #4cae31; -fx-background-radius: 10;" text="Finalize Bill" textFill="WHITE">
+        <JFXButton layoutX="647.0" layoutY="465.0" onAction="#finalizeBillBtnOnAction" prefHeight="35.0" prefWidth="93.0" style="-fx-background-color: #4cae31; -fx-background-radius: 10;" text="Finalize Bill" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
@@ -73,42 +73,41 @@
                 <Font name="System Bold" size="15.0" />
             </font>
         </Label>
-        <JFXTextField layoutX="274.0" layoutY="164.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
-      <Label layoutX="267.0" layoutY="229.0" prefHeight="31.0" prefWidth="107.0" text="Customer Name" textFill="WHITE">
+        <JFXTextField fx:id="txtOrderId" layoutX="274.0" layoutY="164.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <Label layoutX="267.0" layoutY="229.0" prefHeight="31.0" prefWidth="135.0" text="Customer Name" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="267.0" layoutY="252.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtCustomerName" layoutX="267.0" layoutY="252.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
       <Label layoutX="521.0" layoutY="228.0" prefHeight="31.0" prefWidth="107.0" text="Item Name" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="521.0" layoutY="251.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtItemName" layoutX="521.0" layoutY="251.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
       <Label layoutX="521.0" layoutY="140.0" prefHeight="31.0" prefWidth="107.0" text="Item Name" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="521.0" layoutY="163.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtItemName" layoutX="521.0" layoutY="163.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
       <Label layoutX="392.0" layoutY="368.0" prefHeight="31.0" prefWidth="107.0" text="Service Charge" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="392.0" layoutY="391.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtServiceCharge" layoutX="392.0" layoutY="391.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
       <Label layoutX="392.0" layoutY="301.0" prefHeight="31.0" prefWidth="107.0" text="Extra Cost" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="392.0" layoutY="324.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
-      <Label layoutX="392.0" layoutY="435.0" prefHeight="31.0" prefWidth="107.0" text="Total" textFill="WHITE">
+      <JFXTextField fx:id="txtExtraCost" layoutX="392.0" layoutY="324.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
+      <Label fx:id="lblTotal" layoutX="392.0" layoutY="435.0" prefHeight="31.0" prefWidth="107.0" text="Total" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="392.0" layoutY="458.0" styleClass="fillColor" stylesheets="@../css/style.css" unFocusColor="WHITE" />
     </children>
 </AnchorPane>

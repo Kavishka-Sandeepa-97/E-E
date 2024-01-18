@@ -5,11 +5,13 @@ import dao.DaoFactory;
 import dao.DaoType;
 import dao.custom.OrderDao;
 import dto.OrderDto;
+import dto.OrderTm;
 import entity.Item;
 import entity.Orders;
 import org.hibernate.criterion.Order;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -43,6 +45,51 @@ private OrderDao orderDao=DaoFactory.getInstance().getDao(DaoType.ORDER);
             return String.format("ORD%03d", id);
         }
 
+    }
+
+    @Override
+    public List<OrderTm> PendingOrders() {
+        List<OrderTm> orderTmList=new ArrayList<>();
+        List<Orders> list=  orderDao.allPending();
+        for(Orders orders:list){
+            orderTmList.add(new OrderTm(
+                    orders.getOrderId(),
+                    orders.getDate(),
+                    orders.getItem().getItemName(),
+                    orders.getStatus()
+            ));
+        }
+        return orderTmList;
+    }
+
+    @Override
+    public List<OrderTm> ProcessingOrders() {
+        List<OrderTm> orderTmList=new ArrayList<>();
+        List<Orders> list=  orderDao.allProcessing();
+        for(Orders orders:list){
+            orderTmList.add(new OrderTm(
+                    orders.getOrderId(),
+                    orders.getDate(),
+                    orders.getItem().getItemName(),
+                    orders.getStatus()
+            ));
+        }
+        return orderTmList;
+    }
+
+    @Override
+    public List<OrderTm> completedOrders() {
+        List<OrderTm> orderTmList=new ArrayList<>();
+        List<Orders> list=  orderDao.allCompleded();
+        for(Orders orders:list){
+            orderTmList.add(new OrderTm(
+                    orders.getOrderId(),
+                    orders.getDate(),
+                    orders.getItem().getItemName(),
+                    orders.getStatus()
+            ));
+        }
+        return orderTmList;
     }
 
 }

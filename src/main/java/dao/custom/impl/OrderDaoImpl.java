@@ -2,6 +2,7 @@ package dao.custom.impl;
 
 import dao.custom.OrderDao;
 import dao.util.HibernateUtil;
+import entity.Customer;
 import entity.Item;
 import entity.Orders;
 import org.hibernate.Session;
@@ -37,7 +38,10 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public List<Orders> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+        Session session=HibernateUtil.getSession();
+        Query fromCustomer = session.createQuery("From Orders");
+        List list = fromCustomer.list();
+        return list;
     }
 
     @Override
@@ -49,5 +53,59 @@ public class OrderDaoImpl implements OrderDao {
         query.setMaxResults(1);
         lastRow = query.uniqueResult();
         return lastRow;
+    }
+
+    @Override
+    public List<Orders> allPending() {
+        String hql = "SELECT o FROM Orders o WHERE o.status = 'Pending'";
+        Session session= HibernateUtil.getSession();
+        Query<Orders> query = session.createQuery(hql, Orders.class);
+        List<Orders> list = query.getResultList();
+
+        return list;
+    }
+
+    @Override
+    public List<Orders> allProcessing() {
+        String hql = "SELECT o FROM Orders o WHERE o.status = 'Processing'";
+        Session session= HibernateUtil.getSession();
+        Query<Orders> query = session.createQuery(hql, Orders.class);
+        List<Orders> list= query.getResultList();
+        return list;
+    }
+
+    @Override
+    public List<Orders> allCompleded() {
+        String hql = "SELECT o FROM Orders o WHERE o.status = 'completed'";
+        Session session= HibernateUtil.getSession();
+        Query<Orders> query = session.createQuery(hql, Orders.class);
+        List<Orders> list = query.getResultList();
+        return list;
+    }
+
+    @Override
+    public String getStatus(String orderID) {
+
+        Session session= HibernateUtil.getSession();
+        Transaction transaction=session.beginTransaction();
+        try {
+            Orders orders = session.find(Orders.class, orderID);
+
+            return orders.getStatus();
+        }catch (NullPointerException e){
+            return null;
+        }
+    }
+    public boolean setStatus(String id,String status){
+        Session session=HibernateUtil.getSession();
+        Transaction transaction=session.beginTransaction();
+
+        Orders orders=session.find(Orders.class,id);
+
+        orders.setStatus(status);
+
+        session.save(orders);
+        transaction.commit();
+        return true;
     }
 }

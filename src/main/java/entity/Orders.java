@@ -1,5 +1,6 @@
 package entity;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @Entity
 
-public class Orders {
+public class Orders extends RecursiveTreeObject<Orders> {
     @Id
     String OrderId;
     String date;

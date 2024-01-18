@@ -1,22 +1,40 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import dao.DaoFactory;
+import dao.DaoType;
+import dao.custom.OrderDao;
+import dto.OrderDto;
+import entity.Customer;
+import entity.Orders;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class OrderDetailsFormController {
 
-    public TreeTableColumn colDescription
-            ;
+    public TreeTableColumn colDescription;
     public TreeTableColumn colExtraCost;
-    public TreeTableColumn colServiceCharge
-            ;
+    public TreeTableColumn colServiceCharge;
+    public JFXTextField txtItemName;
+    public JFXTreeTableView<Orders> treeTable;
+    public TreeTableColumn colItemId;
+    public JFXTextField txtOrderID;
     @FXML
     private TreeTableColumn<?, ?> colOrderID;
 
@@ -50,11 +68,38 @@ public class OrderDetailsFormController {
     @FXML
     private JFXButton btnLogout;
 
-    public void initialize(){
+    private OrderDao orderDao= DaoFactory.getInstance().getDao(DaoType.ORDER);
 
+    public void initialize(){
+        loadOrderDetailsTable();
+
+        colOrderID.setCellValueFactory(new TreeItemPropertyValueFactory<>("orderId"));
+        colDescription.setCellValueFactory(new TreeItemPropertyValueFactory<>("description"));
+        colStatus.setCellValueFactory(new TreeItemPropertyValueFactory<>("status"));
+        colReciveDate.setCellValueFactory(new TreeItemPropertyValueFactory<>("date"));
+        colExtraCost.setCellValueFactory(new TreeItemPropertyValueFactory<>("extraCost"));
+        colServiceCharge.setCellValueFactory(new TreeItemPropertyValueFactory<>("serviceCharge"));
 
     }
 
+    private void loadOrderDetailsTable() {
+        ObservableList<Orders> tmList = FXCollections.observableArrayList();
+        List<Orders> list=null;
+        try {
+            list=orderDao.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        for(Orders orders:list){
+            tmList.add(orders);
+        }
+
+        TreeItem<Orders> treeItem = new RecursiveTreeItem<>(tmList, RecursiveTreeObject::getChildren);
+        treeTable.setRoot(treeItem);
+        treeTable.setShowRoot(false);
+    }
 
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
