@@ -2,6 +2,7 @@ package entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.xml.namespace.QName;
 @AllArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 public class User {
     @Id

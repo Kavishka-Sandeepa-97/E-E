@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,15 +29,14 @@
          <children>
             <AnchorPane prefHeight="325.0" prefWidth="467.0" styleClass="loginAnchorPane" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <JFXTextField focusColor="WHITE" layoutX="77.0" layoutY="88.0" prefHeight="28.0" prefWidth="208.0" promptText="Email" styleClass="promtText" stylesheets="@../css/style.css" unFocusColor="#f5f5f5">
+                  <JFXTextField fx:id="txtEmail" focusColor="WHITE" layoutX="77.0" layoutY="88.0" prefHeight="28.0" prefWidth="208.0" promptText="Email" stylesheets="@../css/style.css" unFocusColor="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
-                  </JFXTextField>
-                  <JFXTextField focusColor="WHITE" layoutX="77.0" layoutY="144.0" prefHeight="28.0" prefWidth="208.0" promptText="Password" styleClass="promtText" stylesheets="@../css/style.css" unFocusColor="#f5f5f5">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
+                     <styleClass>
+                        <String fx:value="promtText" />
+                        <String fx:value="fillColor" />
+                     </styleClass>
                   </JFXTextField>
                   <Label layoutX="126.0" layoutY="31.0" prefHeight="38.0" prefWidth="88.0" text="Login" textFill="#7ff500">
                      <font>
@@ -51,6 +52,15 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </JFXButton>
+                  <JFXPasswordField fx:id="txtPassword" focusColor="WHITE" layoutX="75.0" layoutY="149.0" prefHeight="25.0" prefWidth="213.0" promptText="Password" stylesheets="@../css/style.css" unFocusColor="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="promtText" />
+                        <String fx:value="fillColor" />
+                     </styleClass>
+                  </JFXPasswordField>
                </children>
             </AnchorPane>
          </children>

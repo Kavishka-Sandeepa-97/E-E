@@ -5,6 +5,7 @@ import dao.util.HibernateUtil;
 import entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -33,6 +34,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+        Session session=HibernateUtil.getSession();
+        Query fromCustomer = session.createQuery("From User");
+        List list = fromCustomer.list();
+        return list;
     }
 }
