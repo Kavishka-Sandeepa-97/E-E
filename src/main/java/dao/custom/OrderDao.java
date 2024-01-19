@@ -16,5 +16,7 @@ public interface OrderDao extends CrudDao<Orders> {
      List<Orders>allCompleded();
      String getStatus(String orderID);
      public boolean setStatus(String status,String id);
+     Orders find(String id);
+     boolean finalizeBillUpdate(String id,double extra,double service);
 
 }

@@ -1,10 +1,18 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import dao.DaoFactory;
+import dao.DaoType;
+import dao.custom.OrderDao;
+import entity.Orders;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,6 +39,38 @@ public class FinalizePaymentFormController {
 
     @FXML
     private JFXButton btnLogout;
+
+    @FXML
+    private JFXTextField txtOrderId;
+
+    @FXML
+    private JFXTextField txtCustomerName;
+
+    @FXML
+    private JFXTextField txtItemName;
+
+    @FXML
+    private JFXTextField txtServiceCharge;
+
+    @FXML
+    private JFXTextField txtExtraCost;
+
+    @FXML
+    private Label lblTotal;
+
+
+    private OrderDao orderDao= DaoFactory.getInstance().getDao(DaoType.ORDER);
+    public void initialize(){
+        txtServiceCharge.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                double extraCost=Double.parseDouble(txtExtraCost.getText());
+                double serviceCharge=Double.parseDouble(txtServiceCharge.getText());
+                lblTotal.setText((extraCost+serviceCharge)+"");
+            }
+
+
+        });
+    }
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
@@ -150,4 +190,21 @@ public class FinalizePaymentFormController {
         }
 
     }
+
+    public void finalizeBillBtnOnAction(ActionEvent actionEvent) {
+            double serviceCharge=Double.parseDouble(txtServiceCharge.getText());
+           double extraCost=Double.parseDouble(txtExtraCost.getText());
+           boolean r= orderDao.finalizeBillUpdate(txtOrderId.getText(),extraCost,serviceCharge);
+            if(r){
+                new Alert(Alert.AlertType.INFORMATION,"Bill is Finalaized").show();
+            }else{new Alert(Alert.AlertType.ERROR,"Bill is Not Finalaized").show();}
+    }
+
+    public void searchBtnOnAction(ActionEvent actionEvent) {
+       Orders orders= orderDao.find(txtOrderId.getText());
+       txtCustomerName.setText(orders.getCustomer().getCustomerName());
+       txtItemName.setText(orders.getItem().getItemName());
+
+    }
+
 }
