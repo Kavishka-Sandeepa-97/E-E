@@ -27,7 +27,7 @@
          <children>
             <AnchorPane prefHeight="325.0" prefWidth="467.0" styleClass="loginAnchorPane" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <JFXTextField focusColor="WHITE" layoutX="77.0" layoutY="88.0" prefHeight="28.0" prefWidth="208.0" promptText="User Name" styleClass="promtText" stylesheets="@../css/style.css" unFocusColor="#f5f5f5">
+                  <JFXTextField focusColor="WHITE" layoutX="77.0" layoutY="88.0" prefHeight="28.0" prefWidth="208.0" promptText="Email" styleClass="promtText" stylesheets="@../css/style.css" unFocusColor="#f5f5f5">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

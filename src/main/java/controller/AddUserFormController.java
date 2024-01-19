@@ -1,6 +1,12 @@
 package controller;
 
+import boService.BoFactory;
+import boService.BoType;
+import boService.Custom.UserBo;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+import entity.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +14,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AddUserFormController {
 
+    public JFXPasswordField txtPassword;
     @FXML
     private JFXButton btnInitiateRepairOrder;
 
@@ -32,7 +40,14 @@ public class AddUserFormController {
     @FXML
     private JFXButton btnLogout;
 
+    @FXML
+    private JFXTextField txtName;
 
+    @FXML
+    private JFXTextField txtEmail;
+
+
+    private UserBo userBo= BoFactory.getInstance().getBo(BoType.USER);
 
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
@@ -153,4 +168,18 @@ public class AddUserFormController {
 
     }
 
+    public void createAccountOnAction(ActionEvent actionEvent) {
+
+        try {
+            userBo.saveUser(  new User(
+                      txtName.getText(),
+                      txtEmail.getText(),
+                      txtPassword.getText()
+              ));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
