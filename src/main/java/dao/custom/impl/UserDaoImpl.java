@@ -29,7 +29,12 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean update(User entity) throws SQLException, ClassNotFoundException {
-        return false;
+        Session session= HibernateUtil.getSession();
+        Transaction transaction=session.beginTransaction();
+        session.update(entity);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override

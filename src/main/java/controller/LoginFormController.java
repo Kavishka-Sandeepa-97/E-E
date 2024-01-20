@@ -56,6 +56,14 @@ public class LoginFormController {
     }
 
     public void forgotbtnOnAction(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) loginPane.getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ForgotPasswordForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+        stage.setTitle("Inetialize Repair Order");
+        stage.setResizable(false);
     }
 }

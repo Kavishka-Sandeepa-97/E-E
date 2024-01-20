@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -176,10 +177,15 @@ public class AddUserFormController {
                       txtEmail.getText(),
                       txtPassword.getText()
               ));
+            new Alert(Alert.AlertType.INFORMATION,"User save Successfully'");
+            txtPassword.clear();
+            txtName.clear();
+            txtEmail.clear();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
+
         }
     }
 }
