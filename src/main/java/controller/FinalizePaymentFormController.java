@@ -72,7 +72,7 @@ public class FinalizePaymentFormController {
 
     @FXML
     private Label lblTotal;
-
+    private String mail;
 
     private OrderDao orderDao= DaoFactory.getInstance().getDao(DaoType.ORDER);
     public void initialize(){
@@ -208,18 +208,24 @@ public class FinalizePaymentFormController {
 
     public void finalizeBillBtnOnAction(ActionEvent actionEvent) {
             double serviceCharge=Double.parseDouble(txtServiceCharge.getText());
-           double extraCost=Double.parseDouble(txtExtraCost.getText());
-           boolean r= orderDao.finalizeBillUpdate(txtOrderId.getText(),extraCost,serviceCharge);
+            double extraCost=Double.parseDouble(txtExtraCost.getText());
+
+             boolean r= orderDao.finalizeBillUpdate(txtOrderId.getText(),extraCost,serviceCharge);
+            String message="\tThank you..! \n\n extra cost-Rs."+extraCost+"\n service Charge-Rs."+serviceCharge+"\n Total-Rs "+(extraCost+serviceCharge);
+             sendEmail(mail,"Finalized Bill Payment",message);
             if(r){
-                new Alert(Alert.AlertType.INFORMATION,"Bill is Finalaized").show();
+                new Alert(Alert.AlertType.INFORMATION,"Bill is Finalaized and Email sent").show();
             }else{new Alert(Alert.AlertType.ERROR,"Bill is Not Finalaized").show();}
+
+
+
     }
 
     public void searchBtnOnAction(ActionEvent actionEvent) {
        Orders orders= orderDao.find(txtOrderId.getText());
        txtCustomerName.setText(orders.getCustomer().getCustomerName());
        txtItemName.setText(orders.getItem().getItemName());
-       sendEmail("kavisanbasnayake@gmail.com","mail test","Test is working");
+       mail=orders.getCustomer().getCustomerEmail();
 
     }
 
