@@ -39,7 +39,7 @@ public class LoginFormController {
         if (validation) {
             Stage stage = (Stage) loginPane.getScene().getWindow();
             try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/InitializeRepairOrder.fxml"))));
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/InitializeRepairOrder.fxml"))));
                 stage.show();
                 stage.setTitle("Inetialize Repair Order");
                 stage.setResizable(false);
