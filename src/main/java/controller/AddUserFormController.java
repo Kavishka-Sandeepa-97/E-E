@@ -132,7 +132,7 @@ public class AddUserFormController {
     public void initiateRepairOrderOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/InitializeRepairOrder.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/InitializeRepairOrder.fxml"))));
             stage.show();
             stage.setTitle("Initiate Repai Order");
             stage.setResizable(false);
@@ -145,7 +145,7 @@ public class AddUserFormController {
     public void itemOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ItemForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ItemForm.fxml"))));
             stage.show();
             stage.setTitle("Item Form");
             stage.setResizable(false);
@@ -158,7 +158,7 @@ public class AddUserFormController {
     public void customerOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/CustomerForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerForm.fxml"))));
             stage.show();
             stage.setTitle("Customer Form");
             stage.setResizable(false);
@@ -171,7 +171,7 @@ public class AddUserFormController {
 
     public void createAccountOnAction(ActionEvent actionEvent) {
 
-        try {
+
             userBo.saveUser(  new User(
                       txtName.getText(),
                       txtEmail.getText(),
@@ -181,11 +181,6 @@ public class AddUserFormController {
             txtPassword.clear();
             txtName.clear();
             txtEmail.clear();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
 
-        }
     }
 }

@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface OrderBo extends SuperBo {
 
-    public boolean saveOrder(OrderDto orderDto) throws SQLException, ClassNotFoundException;
-    public  String genarateOrderId() throws SQLException, ClassNotFoundException;
+    public boolean saveOrder(OrderDto orderDto) ;
+    public  String genarateOrderId() ;
 
-    public List<OrderDto> allOrder() throws SQLException, ClassNotFoundException;
+    public List<OrderDto> allOrder();
 
     String genarateId();
 

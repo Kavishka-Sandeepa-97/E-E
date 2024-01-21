@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ItemDaoImpl implements ItemDao {
     @Override
-    public boolean save(Item entity) throws SQLException, ClassNotFoundException {
+    public boolean save(Item entity) {
         Session session= HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         session.save(entity);
@@ -24,17 +24,17 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public boolean delete(String value) throws SQLException, ClassNotFoundException {
+    public boolean delete(String value){
         return false;
     }
 
     @Override
-    public boolean update(Item entity) throws SQLException, ClassNotFoundException {
+    public boolean update(Item entity) {
         return false;
     }
 
     @Override
-    public List<Item> getAll() throws SQLException, ClassNotFoundException {
+    public List<Item> getAll() {
         Session session=HibernateUtil.getSession();
         Query fromCustomer = session.createQuery("From Item");
         List list = fromCustomer.list();
@@ -42,7 +42,7 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public Item getItem(String id) throws SQLException, ClassNotFoundException {
+    public Item getItem(String id)  {
         return null;
     }
     public Item lastItem() {

@@ -97,7 +97,7 @@ public class CustomerFormController {
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/OrderDetailsForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/OrderDetailsForm.fxml"))));
             stage.show();
             stage.setTitle("Order Details");
             stage.setResizable(false);
@@ -110,7 +110,7 @@ public class CustomerFormController {
     public void productStatusONAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/AllProductStatus.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AllProductStatus.fxml"))));
             stage.show();
             stage.setTitle("All Product Status");
 
@@ -124,7 +124,7 @@ public class CustomerFormController {
     public void finalizePaymentOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/FinalizePayment.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/FinalizePayment.fxml"))));
             stage.show();
             stage.setTitle("Finalize Payment");
             stage.setResizable(false);
@@ -137,7 +137,7 @@ public class CustomerFormController {
     public void salseReportOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/SalesReportForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SalesReportForm.fxml"))));
             stage.show();
             stage.setTitle("Finalize Payment");
             stage.setResizable(false);
@@ -150,7 +150,7 @@ public class CustomerFormController {
     public void addUserOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/AddUserForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddUserForm.fxml"))));
             stage.show();
             stage.setTitle("Add User");
             stage.setResizable(false);
@@ -163,7 +163,7 @@ public class CustomerFormController {
     public void logoutOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"))));
             stage.show();
             stage.setTitle("Login Form");
             stage.setResizable(false);
@@ -176,7 +176,7 @@ public class CustomerFormController {
     public void initiateRepairOrderOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/InitializeRepairOrder.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/InitializeRepairOrder.fxml"))));
             stage.show();
             stage.setTitle("Initiate Repai Order");
             stage.setResizable(false);
@@ -189,7 +189,7 @@ public class CustomerFormController {
     public void itemOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ItemForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ItemForm.fxml"))));
             stage.show();
             stage.setTitle("Item Form");
             stage.setResizable(false);
@@ -202,7 +202,7 @@ public class CustomerFormController {
     public void customerOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/CustomerForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerForm.fxml"))));
             stage.show();
             stage.setTitle("Customer Form");
             stage.setResizable(false);
@@ -214,18 +214,15 @@ public class CustomerFormController {
     }
 
     public void addCustomerOnAction(ActionEvent actionEvent) {
-        try {
+
             customerBo.saveCustomer(new CustomerDto(
                  lblCustomerID.getText(),
                  txtCustomerName.getText(),
                  txtEmail.getText(),
                  Long.parseLong(txtPhoneNumber.getText())
             ));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
+
         txtCustomerName.clear();
         txtEmail.clear();
         txtPhoneNumber.clear();
@@ -241,11 +238,9 @@ public class CustomerFormController {
     private void loadCustomerTable() {
         ObservableList<Customer> tmList = FXCollections.observableArrayList();
         List<Customer> customers = null;
-        try {
+
             customers = customerBo.allCustomer();
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
         for(Customer customer:customers){
                 tmList.add(customer);
             }

@@ -33,13 +33,9 @@ public class LoginFormController {
     public void signInButtonOnAction(ActionEvent actionEvent) {
 
         boolean validation = false;
-        try {
+
             validation = userBo.validation(txtEmail.getText(), txtPassword.getText());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
         if (validation) {
             Stage stage = (Stage) loginPane.getScene().getWindow();
             try {
@@ -58,7 +54,7 @@ public class LoginFormController {
     public void forgotbtnOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) loginPane.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ForgotPasswordForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ForgotPasswordForm.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

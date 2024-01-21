@@ -17,7 +17,7 @@ public class OrderDaoImpl implements OrderDao {
 
 
     @Override
-    public boolean save(Orders entity) throws SQLException, ClassNotFoundException {
+    public boolean save(Orders entity)  {
         Session session= HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         session.save(entity);
@@ -27,17 +27,17 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public boolean delete(String value) throws SQLException, ClassNotFoundException {
+    public boolean delete(String value)  {
         return false;
     }
 
     @Override
-    public boolean update(Orders entity) throws SQLException, ClassNotFoundException {
+    public boolean update(Orders entity) {
         return false;
     }
 
     @Override
-    public List<Orders> getAll() throws SQLException, ClassNotFoundException {
+    public List<Orders> getAll()  {
         Session session=HibernateUtil.getSession();
         Query fromCustomer = session.createQuery("From Orders");
         List list = fromCustomer.list();

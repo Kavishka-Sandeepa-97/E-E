@@ -71,11 +71,9 @@ public class ItemFormController {
     private void loadItemrTable() {
         ObservableList<Item> tmList = FXCollections.observableArrayList();
         List<Item> items = null;
-        try {
+
             items = itemDao.getAll();
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
         for(Item item:items){
             tmList.add(item);
         }
@@ -93,7 +91,7 @@ public class ItemFormController {
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/OrderDetailsForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/OrderDetailsForm.fxml"))));
             stage.show();
             stage.setTitle("Order Details");
             stage.setResizable(false);
@@ -103,16 +101,12 @@ public class ItemFormController {
         }
     }
     public void addItemOnAction(ActionEvent actionEvent) {
-        try {
+
             itemDao.save(new Item(
             lblItemId.getText(),
                     txtItemName.getText()
             ));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
 
         txtItemName.clear();
         setItemId();
@@ -123,7 +117,7 @@ public class ItemFormController {
     public void productStatusONAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/AllProductStatus.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AllProductStatus.fxml"))));
             stage.show();
             stage.setTitle("All Product Status");
             stage.setResizable(false);
@@ -137,7 +131,7 @@ public class ItemFormController {
     public void finalizePaymentOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/FinalizePayment.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/FinalizePayment.fxml"))));
             stage.show();
             stage.setTitle("Finalize Payment");
             stage.setResizable(false);
@@ -150,7 +144,7 @@ public class ItemFormController {
     public void salseReportOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/SalesReportForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SalesReportForm.fxml"))));
             stage.show();
             stage.setTitle("Finalize Payment");
             stage.setResizable(false);
@@ -163,7 +157,7 @@ public class ItemFormController {
     public void addUserOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/AddUserForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddUserForm.fxml"))));
             stage.show();
             stage.setTitle("Add User");
             stage.setResizable(false);
@@ -176,7 +170,7 @@ public class ItemFormController {
     public void logoutOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"))));
             stage.show();
             stage.setTitle("Login Form");
             stage.setResizable(false);
@@ -189,7 +183,7 @@ public class ItemFormController {
     public void initiateRepairOrderOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/InitializeRepairOrder.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/InitializeRepairOrder.fxml"))));
             stage.show();
             stage.setTitle("Initiate Repai Order");
             stage.setResizable(false);
@@ -202,7 +196,7 @@ public class ItemFormController {
     public void itemOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ItemForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ItemForm.fxml"))));
             stage.show();
             stage.setTitle("Item Form");
             stage.setResizable(false);
@@ -215,7 +209,7 @@ public class ItemFormController {
     public void customerOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/CustomerForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerForm.fxml"))));
             stage.show();
             stage.setTitle("Customer Form");
             stage.setResizable(false);

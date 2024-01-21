@@ -19,7 +19,7 @@ public class CustomerBoImpl implements CustomerBo {
     private CustomerDao customerDao= DaoFactory.getInstance().getDao(DaoType.CUSTOMER);
 
     @Override
-    public boolean saveCustomer(CustomerDto dto) throws SQLException, ClassNotFoundException {
+    public boolean saveCustomer(CustomerDto dto)  {
       return   customerDao.save(new Customer(
                 dto.getCustomerId(),
                 dto.getCustomerName(),
@@ -30,17 +30,17 @@ public class CustomerBoImpl implements CustomerBo {
     }
 
     @Override
-    public boolean updateCustomer(CustomerDto dto) throws SQLException, ClassNotFoundException {
+    public boolean updateCustomer(CustomerDto dto) {
         return false;
     }
 
     @Override
-    public boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException {
+    public boolean deleteCustomer(String id) {
         return false;
     }
 
     @Override
-    public List<Customer> allCustomer() throws SQLException, ClassNotFoundException {
+    public List<Customer> allCustomer() {
 
         return customerDao.getAll();
     }

@@ -53,7 +53,7 @@ public class ForgotPasswordFormController {
     public void logoutOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnSavePassword.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"))));
             stage.show();
             stage.setTitle("Login Form");
             stage.setResizable(false);
@@ -63,7 +63,7 @@ public class ForgotPasswordFormController {
         }
     }
 
-    public void sendOtpOnaction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    public void sendOtpOnaction(ActionEvent actionEvent)  {
 
         Random random = new Random();
 
@@ -87,13 +87,9 @@ public class ForgotPasswordFormController {
         String hased= BCrypt.hashpw(password,BCrypt.gensalt());
         u.setPassword(hased);
         boolean update = false;
-        try {
+
             update = userDao.update(u);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
         if(update && otp.equalsIgnoreCase(String.valueOf(r))){
             new Alert(Alert.AlertType.INFORMATION,"Password is Updated").show();
         }else  new Alert(Alert.AlertType.INFORMATION,"wrong !").show();

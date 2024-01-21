@@ -43,7 +43,7 @@
                         <Font name="Arial Black" size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnSignIn" layoutX="86.0" layoutY="238.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-radius: 20;" styleClass="btnLogin" stylesheets="@../css/style.css" text="Sing in" textFill="WHITE">
+                  <Button fx:id="btnSignIn" layoutX="86.0" layoutY="238.0" mnemonicParsing="false" onAction="#signInButtonOnAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-radius: 20;" styleClass="btnLogin" stylesheets="@../css/style.css" text="Sign in" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Button>

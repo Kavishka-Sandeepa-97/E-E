@@ -23,12 +23,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean delete(String value) throws SQLException, ClassNotFoundException {
+    public boolean delete(String value) {
         return false;
     }
 
     @Override
-    public boolean update(User entity) throws SQLException, ClassNotFoundException {
+    public boolean update(User entity) {
         Session session= HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         session.update(entity);
@@ -38,7 +38,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> getAll() throws SQLException, ClassNotFoundException {
+    public List<User> getAll() {
         Session session=HibernateUtil.getSession();
         Query fromCustomer = session.createQuery("From User");
         List list = fromCustomer.list();

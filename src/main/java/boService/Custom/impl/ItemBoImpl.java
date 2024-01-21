@@ -18,27 +18,27 @@ public class ItemBoImpl implements ItemBo {
     ItemDao itemDao= DaoFactory.getInstance().getDao(DaoType.ITEM);
 
     @Override
-    public boolean saveItem(ItemDto dto) throws SQLException, ClassNotFoundException {
+    public boolean saveItem(ItemDto dto)  {
         return false;
     }
 
     @Override
-    public boolean updateItem(ItemDto dto) throws SQLException, ClassNotFoundException {
+    public boolean updateItem(ItemDto dto)  {
         return false;
     }
 
     @Override
-    public boolean deleteItem(String id) throws SQLException, ClassNotFoundException {
+    public boolean deleteItem(String id)  {
         return false;
     }
 
     @Override
-    public List<ItemDto> allItem() throws SQLException, ClassNotFoundException {
+    public List<ItemDto> allItem() {
         return null;
     }
 
     @Override
-    public ItemDto getItem(String id) throws SQLException, ClassNotFoundException {
+    public ItemDto getItem(String id) {
         return null;
     }
 

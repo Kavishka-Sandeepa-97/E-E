@@ -15,7 +15,7 @@ import java.util.List;
 public class CustomerDaoImpl implements CustomerDao {
 
     @Override
-    public boolean save(Customer entity) throws SQLException, ClassNotFoundException {
+    public boolean save(Customer entity){
 
 //        Configuration configuration = new Configuration()
 //                .configure("hibernate.cfg.xml")
@@ -36,7 +36,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public boolean delete(String value) throws SQLException, ClassNotFoundException {
+    public boolean delete(String value)  {
 
 
         Session session= HibernateUtil.getSession();
@@ -50,7 +50,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public boolean update(Customer entity) throws SQLException, ClassNotFoundException {
+    public boolean update(Customer entity) {
 
 //
 //        Session session=HibernateUtil.getSession();
@@ -77,7 +77,7 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public List<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public List<Customer> getAll(){
 
             Session session=HibernateUtil.getSession();
         Query fromCustomer = session.createQuery("From Customer");

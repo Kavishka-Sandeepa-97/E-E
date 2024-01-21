@@ -12,6 +12,6 @@ public interface ItemDao extends CrudDao<Item> {
 //    boolean deleteItem(String id) throws SQLException, ClassNotFoundException;
 //    List<ItemDto> allItem() throws SQLException, ClassNotFoundException;
 //    ItemDto getItem(String id) throws SQLException, ClassNotFoundException;
-    Item getItem(String id) throws SQLException, ClassNotFoundException ;
+    Item getItem(String id)  ;
     Item lastItem();
 }

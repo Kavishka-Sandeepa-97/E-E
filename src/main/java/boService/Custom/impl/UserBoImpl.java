@@ -20,14 +20,14 @@ public class UserBoImpl implements UserBo {
     private UserDao userDao= DaoFactory.getInstance().getDao(DaoType.USER);
 
     @Override
-    public boolean saveUser(User user) throws SQLException, ClassNotFoundException {
+    public boolean saveUser(User user) {
        String password= user.getPassword();
 
        String hased= BCrypt.hashpw(password,BCrypt.gensalt());
         user.setPassword(hased);
         return userDao.save(user);
     }
-    public boolean validation(String email,String password) throws SQLException, ClassNotFoundException {
+    public boolean validation(String email,String password)  {
         List<User> list= userDao.getAll();
         if(list.isEmpty()){
             return true;
@@ -43,7 +43,7 @@ public class UserBoImpl implements UserBo {
     }
 
     @Override
-    public User checkEmail(String mail) throws SQLException, ClassNotFoundException {
+    public User checkEmail(String mail) {
         List<User> list=userDao.getAll();
         for(User user:list){
             if (user.getEmail().equalsIgnoreCase(mail)){
@@ -60,7 +60,7 @@ public class UserBoImpl implements UserBo {
 
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp. starttls.enable", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.ssl.protocols", "TLSv1.2");

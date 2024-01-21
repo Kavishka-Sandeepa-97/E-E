@@ -110,32 +110,28 @@ public void initialize() {
 
     private void loadCustomerIds() {
         ObservableList<String> list = FXCollections.observableArrayList();
-        try {
+
             custlist = customerDao.getAll();
             for (Customer x : custlist) {
                 list.add(x.getCustomerName());
             }
             cmbCustomerName.setItems(list);
 
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
 
     }
 
     private void loadItemeCodes() {
 
         ObservableList<String> list = FXCollections.observableArrayList();
-        try {
+
             itemlist = itemDao.getAll();
             for (Item x : itemlist) {
                 list.add(x.getItemName());
             }
             cmbItemName.setItems(list);
 
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
 
     }
 
@@ -149,7 +145,7 @@ public void initialize() {
     public void orderDetailsOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/OrderDetailsForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/OrderDetailsForm.fxml"))));
             stage.show();
             stage.setTitle("Order Details");
             stage.setResizable(false);
@@ -162,7 +158,7 @@ public void initialize() {
     public void productStatusONAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/AllProductStatus.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AllProductStatus.fxml"))));
             stage.show();
             stage.setTitle("All Product Status");
 
@@ -176,7 +172,7 @@ public void initialize() {
     public void finalizePaymentOnAction(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/FinalizePayment.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/FinalizePayment.fxml"))));
             stage.show();
             stage.setTitle("Finalize Payment");
             stage.setResizable(false);
@@ -189,7 +185,7 @@ public void initialize() {
     public void salseReportOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/SalesReportForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/SalesReportForm.fxml"))));
             stage.show();
             stage.setTitle("Finalize Payment");
             stage.setResizable(false);
@@ -202,7 +198,7 @@ public void initialize() {
     public void addUserOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/AddUserForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/AddUserForm.fxml"))));
             stage.show();
             stage.setTitle("Add User");
             stage.setResizable(false);
@@ -215,7 +211,7 @@ public void initialize() {
     public void logoutOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"))));
             stage.show();
             stage.setTitle("Login Form");
             stage.setResizable(false);
@@ -228,7 +224,7 @@ public void initialize() {
     public void initiateRepairOrderOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/InitializeRepairOrder.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/InitializeRepairOrder.fxml"))));
             stage.show();
             stage.setTitle("Initiate Repai Order");
             stage.setResizable(false);
@@ -241,7 +237,7 @@ public void initialize() {
     public void itemOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ItemForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ItemForm.fxml"))));
             stage.show();
             stage.setTitle("Item Form");
             stage.setResizable(false);
@@ -254,7 +250,7 @@ public void initialize() {
     public void customerOnAction(ActionEvent actionEvent) {
         Stage stage = (Stage) btnAddUser.getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/CustomerForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerForm.fxml"))));
             stage.show();
             stage.setTitle("Customer Form");
             stage.setResizable(false);
@@ -266,7 +262,7 @@ public void initialize() {
     }
 
     public void InitiateRepairOrderOnAction(ActionEvent actionEvent) {
-        try {
+
             boolean save = orderDao.save(new Orders(
                     lblOrderID.getText(),
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("YY-MM-dd")),
@@ -280,7 +276,7 @@ public void initialize() {
             if (save){
                 Stage stage = (Stage) btnAddUser.getScene().getWindow();
                 try {
-                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/InitializeRepairOrder.fxml"))));
+                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/InitializeRepairOrder.fxml"))));
                     stage.show();
                     stage.setTitle("Initiate Repai Order");
                     stage.setResizable(false);
@@ -291,11 +287,7 @@ public void initialize() {
                 new Alert(Alert.AlertType.INFORMATION, "Order is Initialized").show();
 
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
 
     }
 }

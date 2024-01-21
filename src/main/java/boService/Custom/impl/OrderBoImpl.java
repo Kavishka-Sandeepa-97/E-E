@@ -19,17 +19,17 @@ public class OrderBoImpl implements OrderBo {
 
 private OrderDao orderDao=DaoFactory.getInstance().getDao(DaoType.ORDER);
     @Override
-    public boolean saveOrder(OrderDto orderDto) throws SQLException, ClassNotFoundException {
+    public boolean saveOrder(OrderDto orderDto)  {
         return false;
     }
 
     @Override
-    public String genarateOrderId() throws SQLException, ClassNotFoundException {
+    public String genarateOrderId(){
         return null;
     }
 
     @Override
-    public List<OrderDto> allOrder() throws SQLException, ClassNotFoundException {
+    public List<OrderDto> allOrder() {
         return null;
     }
 
